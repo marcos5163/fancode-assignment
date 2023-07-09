@@ -49,6 +49,9 @@ create table if not exists fancode.news
     foreign key (matchId) references matches(id),
 );
 
+-- creating index on name column in tours table
+CREATE INDEX idx_tours_name ON tours (name);
+
 
 -- seed data
 insert ignore into fancode.sports (id, name) values (1, 'Cricket');
