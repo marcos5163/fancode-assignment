@@ -5,7 +5,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=mysecretpassword
+      - MYSQL_ROOT_PASSWORD=manish_kumar
       - MYSQL_DATABASE=mydb
       - MYSQL_USER=myuser
       - MYSQL_PASSWORD=mypassword
@@ -13,12 +13,26 @@ services:
       - ./src/migration/base.sql:/docker-entrypoint-initdb.d/base.sql
     networks:
       - my-network
-  app:
+
+  django:
+    build:
+      context: ./sports_news  
+      dockerfile: Dockerfile
     depends_on:
       - db
+    ports:
+      - 8000:8000
+    environment:
+      - DJANGO_ENV=development
+    networks:
+      - my-network
+
+  nodejs:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - db
     ports:
       - 3000:3000
     environment:
