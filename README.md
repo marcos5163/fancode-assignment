@@ -1,4 +1,4 @@
- - For optimising /tour/matches endpoint, solution is to create index for name column in tours table,  and modified the query to use index
+ - For optimising /tour/matches endpoint, solution is to create index for name column in tours table,  and modified the query to use index  
    `SELECT *
     FROM matches
     LEFT JOIN tours ON matches.tourId = tours.id AND tours.name = ? `
@@ -20,18 +20,18 @@
    "sportid":"int"
   }`
 
-**News support APIs**
+**News support APIs**  
    - For creating news,
      
-     POST news/
+     POST news/  
      **Payload**
       `{
         "title": "CSK won",
         "description": "CSK defeated GT to win IPL 2023",
         "tourid"/"matchid": 1 
-       }`
-   - For getting news by any particular sport, tour, match
-     GET `news/sport/<sport_id>/`, `news/tour/<tour_id>/`, `news/match/<match_id>/`
+       }`  
+   - For getting news by any particular sport, tour, match  
+     GET `news/sport/<sport_id>/`, `news/tour/<tour_id>/`, `news/match/<match_id>/`  
 
 - Unit test are included in sports_news/app/tests.py
      
