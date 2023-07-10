@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'sports_news.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fancode',  
-        'USER': 'root',
-        'PASSWORD': 'manish_kumar',
+        'NAME': 'mydb',  
+        'USER': 'myuser',
+        'PASSWORD': 'mysecretpassword',
         'HOST':'localhost',
         'POST':'3306'
     }
